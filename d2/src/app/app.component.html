@@ -1,0 +1,33 @@
+<h1>{{ title }}</h1>
+<!-- <p [style.font-size]="fontSize">
+  {{greetings}}
+</p> -->
+<!--<input type="range" min="1" max="10" step="0.1"
+(change)="fontSizeChanged($event)">-->
+
+<p [hidden]="myProp">Am I hidden?</p>
+
+<app-font-size
+[message]="title"
+(onFontSize)="sizeChanged($event)">
+</app-font-size>
+
+<app-cart *ngIf="show"></app-cart>
+
+<br><br>
+<input
+type="text"
+[disabled]="isDisabled"
+[ngClass]="{'grey-border': isDisabled, 'blue-border': !isDisabled}">
+
+<hr>
+<div>
+  <div class="column">
+   abc
+  </div>
+  <div class="column">
+    def
+  </div>
+</div>
+
+
