@@ -1,0 +1,52 @@
+<!-- <form [formGroup]="todoForm" (ngSubmit)="processForm()">
+  <tbody fromArrayName="todo">
+    <td><input type="date"></td>
+    <td><input type="text"></td>
+    <select>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </tbody>
+
+  <button>Save</button>
+</form> -->
+
+<!-- <form (ngSubmit)="processForm()">
+	<button type=“button”>Add TODO</button>
+	<tbody>
+		<tr>
+			<td> <input type="date"> </td>
+			<td> <input type="text"> </td>
+			<td>
+				<select>
+					<option value="low">Low</option>
+					<option value="med">Medium</option>
+          <option value="hi">High</option>
+				</select>
+		</td>
+	</tbody>
+	<button type="submit">Save</button>
+</form> -->
+
+<form [formGroup]="todoForm" (ngSubmit)="processForm()">
+	<button type="button" (click)="addTodo()">Add TODO</button>
+	<tbody formArrayName="todos">
+		<tr *ngFor="let todo of todoArray.controls">
+			<td> <input type="date" formControlName="date"> </td>
+			<td> <input type="text" formControlName="description"> </td>
+      <div *ngIf="todoForm.get('description')!.hasError('required')">
+        Please enter your description
+      </div>
+			<td>
+				<select formControlName="priority">
+					<option value="low">Low</option>
+          <option value="med">Medium</option>
+          <option value="hi">High</option>
+				</select>
+			</td>
+		</tr>
+	</tbody>
+	<button type="submit">Save</button>
+</form>
+

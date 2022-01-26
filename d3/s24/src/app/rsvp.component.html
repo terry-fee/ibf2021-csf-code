@@ -1,0 +1,66 @@
+<form [formGroup]="rsvpForm" (ngSubmit)="processForm()">
+
+  <mat-form-field appearance="fill">
+		<input type="email" formControlName="email"
+				placeholder="Please enter your email"
+				matInput>
+	</mat-form-field>
+
+  <mat-radio-group formControlName="attending">
+    <mat-radio-button value="yes">
+      Yes
+    </mat-radio-button>
+    <mat-radio-button value="no">
+      No
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>People</mat-label>
+    <mat-select placeholder="Guest" formControlName="guest" >
+      <mat-option *ngFor="let g of [0, 1, 2, 3]"
+          [value]="g">
+        {{ g }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-checkbox formControlName="newsletter">
+    Yes, I wish to receive newsletter
+  </mat-checkbox>
+
+  <br>
+
+  <mat-checkbox [formControl]="diet"
+	*ngFor="let diet of dietArray.controls; let i = index">
+	{{ labels[i] }}
+  </mat-checkbox>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput
+      [matDatepicker]="datepicker"
+      placeholder="Date of birth"
+      formControlName="dob">
+    <mat-datepicker-toggle matSuffix
+      [for]="datepicker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #datepicker>
+    </mat-datepicker>
+  </mat-form-field>
+
+</form>
+
+<!-- <p>
+  <label for="firstName">First Name</label>
+  <input (keyup)="0" type="text" #firstName id="firstName" ngModel>
+  <button (click)="greet(firstName)">Click</button>
+  {{firstName.value}}
+</p> -->
+
+

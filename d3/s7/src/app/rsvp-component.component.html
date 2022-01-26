@@ -1,0 +1,80 @@
+<!-- <form [formGroup]="rsvpForm" (ngSubmit)="processForm()">
+
+  Name: <input type="text" formControlName="name">
+  Email: <input type="email" formControlName="email">
+  Phone: <input type="tel" formControlName="phone">
+  Attending:
+  <input type="radio" value="yes" formControlName="attending"> YES
+  <input type="radio" value="no" formControlName="attending"> NO
+
+  <button>Submit</button>
+
+</form> -->
+
+
+<!-- <h1 #h1Element>Hello World</h1>
+{{h1Element.textContent}} -->
+
+<!-- <form [formGroup]="rsvpForm" (ngSubmit)="processForm()">
+
+	Name: <input type="text"
+   formControlName="name"><br>
+  <div *ngIf="rsvpForm.get('name')!.hasError('required')">
+		Please enter your name
+	</div>
+
+	Email: <input type="email" formControlName="email"><br>
+  <div *ngIf="rsvpForm.get('email')!.hasError('required')">
+		Please enter your email
+	</div>
+  <div *ngIf="rsvpForm.get('email')!.hasError('email')">
+		Please enter a valid email
+	</div>
+
+  Phone: <input type="tel"
+   formControlName="phone"><br>
+
+	Attending:
+	<input type="radio" value="yes"
+   formControlName="attending"> YES
+	<input type="radio" value="no"
+   formControlName="attending"> NO
+
+	<button type="submit">
+		Send
+	</button>
+
+  <h3 *ngIf="isShow">{{rsvpForm.value.name}}</h3>
+
+</form> -->
+
+<form #form="ngForm" (ngSubmit)="processForm2(form)">
+
+	Name: <input type="text"
+   name="name" id="name" ngModel #name="ngModel" required><br>
+   <p>My Name: {{myName}}</p>
+   <p>Form value: {{form.value.name}}</p>
+   <div *ngIf="!name.valid">
+		<i>Please enter your name</i>
+	</div>
+
+	Email: <input type="email"
+   formControlName="email"><br>
+
+	Phone: <input type="tel"
+   formControlName="phone"><br>
+
+	Attending:
+	<input type="radio" value="yes"
+   formControlName="attending"> YES
+	<input type="radio" value="no"
+   formControlName="attending"> NO
+
+	<button type="submit">
+		Send
+	</button>
+
+  <h3 *ngIf="isShow">{{rsvpForm.value.name}}</h3>
+
+</form>
+
