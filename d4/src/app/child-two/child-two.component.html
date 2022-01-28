@@ -1,2 +1,6 @@
 <h2>Child Two Component</h2>
+<button type="button" (click)="decrement()"
+[disabled]="isLtEqZero()">
+  Decrement
+</button>
 <h3>{{childTwoOutput}}</h3>

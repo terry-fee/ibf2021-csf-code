@@ -1,13 +1,18 @@
 <h1>Parent Component</h1>
-<h3>{{output}}</h3>
+<h3>used as a "relay" for child components</h3>
+<h3>{{parentCount}}</h3>
 <hr>
 
 <app-child [count]="parentCount"
-  (onChildEvent)="parentAct($event)"
-></app-child>
+  (onChildEvent)="parentAct($event)">
+</app-child>
 <hr>
 
-<app-child-two [childTwoOutput]="output">
+<app-child-two [childTwoOutput]="parentCount"
+  (onChildTwoEvent)="parentActTwo($event)"
+  >
 </app-child-two>
+
+<!-- <app-random1></app-random1> -->
 
 

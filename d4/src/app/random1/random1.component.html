@@ -1,0 +1,9 @@
+<h2>Please guess a number between 1 to 100</h2>
+
+<form [formGroup]="myForm"
+(ngSubmit)="processForm()">
+  <input type="text" formControlName="num">
+  <button type="submit">Guess</button>
+</form>
+
+<h2>{{num}}</h2>
