@@ -1,0 +1,13 @@
+<h1>Parent Component</h1>
+<h3>{{output}}</h3>
+<hr>
+
+<app-child [count]="parentCount"
+  (onChildEvent)="parentAct($event)"
+></app-child>
+<hr>
+
+<app-child-two [childTwoOutput]="output">
+</app-child-two>
+
+
